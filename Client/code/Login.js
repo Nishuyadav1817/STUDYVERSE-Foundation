@@ -7,10 +7,9 @@ import { loginUser } from './authSlice';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
 
-
 function Login() {
   const validator = z.object({
-  EmailId: z.string().email('Invalid email address'),
+    EmailId: z.string().email('Invalid email address'),
     password: z.string().min(6, 'Password must be at least 6 characters'),
   });
 
@@ -45,8 +44,8 @@ function Login() {
 
       <nav className="navbar">
         <div className="logo">
-          <span className="logo-icon">⬡</span>
-          <h2>Tech Stack Recommender</h2>
+          <span className="logo-icon">🎓</span>
+          <h2>STUDYVERSE AI Ecosystem</h2>
         </div>
         <NavLink className="admin-btn" to="/adminreg">Admin Portal →</NavLink>
       </nav>
@@ -55,18 +54,17 @@ function Login() {
         {/* Sidebar Info */}
         <div className="sidebar-info">
           <div className="sidebar-tag">Welcome back</div>
-          <h3 className="sidebar-title">Your stack<br />awaits.</h3>
+          <h3 className="sidebar-title">Continue your<br />study journey.</h3>
           <p className="sidebar-desc">
-            Sign in to access AI-powered tech stack recommendations
-            tailored to your startup's stage, team, and sector.
+            Access your AI-powered guidance system for admissions, career planning, SOPs, visas, and education loans.
           </p>
 
           <ul className="feature-list">
             {[
-              ['🚀', 'Startup stage', 'Idea → MVP → Growth → Scaling'],
-              ['👥', 'Team & budget', 'Right-sized for your resources'],
-              ['🏦', 'Sector fit', 'FinTech, EdTech, HealthTech & more'],
-              ['🧠', 'AI reasoning', 'Every choice explained clearly'],
+              ['🎯', 'Career Guidance', 'Best-fit courses & universities'],
+              ['📊', 'Admission Predictor', 'AI-based chance estimation'],
+              ['💰', 'Loan & ROI Engine', 'Financial planning & EMI simulation'],
+              ['🤖', 'AI Copilot', '24/7 personalized guidance'],
             ].map(([icon, title, desc]) => (
               <li key={title} className="feature-item">
                 <span className="feature-icon">{icon}</span>
@@ -79,7 +77,7 @@ function Login() {
           </ul>
 
           <div className="sidebar-footer">
-            Trusted by 2,400+ founders · Free forever
+            Trusted by 10,000+ students · AI-first platform
           </div>
         </div>
 
@@ -87,8 +85,8 @@ function Login() {
         <div className="form-card">
           <div className="form-header">
             <div className="form-badge">Sign in</div>
-            <h1 className="form-title">TIESVERSE<br /><span>Foundation</span></h1>
-            <p className="form-subtitle">Enter your credentials to continue.</p>
+            <h1 className="form-title">STUDYVERSE<br /><span>AI Ecosystem</span></h1>
+            <p className="form-subtitle">Welcome back. Continue your journey.</p>
           </div>
 
           {loginAttempted && error && (
@@ -97,13 +95,13 @@ function Login() {
 
           <form onSubmit={handleSubmit(submit)} noValidate>
             <div className="form-group">
-              <label htmlFor="Email">Email</label>
+              <label htmlFor="EmailId">Email</label>
               <div className="input-wrap">
                 <span className="input-icon">✉️</span>
                 <input
                   id="EmailId"
                   {...register('EmailId')}
-                  placeholder="jane@startup.com"
+                  placeholder="jane@student.com"
                   type="email"
                   className={errors.EmailId ? 'has-error' : ''}
                 />
@@ -112,7 +110,7 @@ function Login() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="Password">Password</label>
+              <label htmlFor="password">Password</label>
               <div className="input-wrap">
                 <span className="input-icon">🔒</span>
                 <input

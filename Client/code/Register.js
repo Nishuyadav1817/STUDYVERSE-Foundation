@@ -7,7 +7,6 @@ import { registerUser } from './authSlice';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router';
 
-
 function Register() {
   const validator = z.object({
     FullName: z.string().min(3, 'Minimum 3 characters required'),
@@ -36,7 +35,7 @@ function Register() {
         <div className="spinner">
           <span></span><span></span><span></span>
         </div>
-        <p className="spinner-label">Setting up your account…</p>
+        <p className="spinner-label">Setting up your AI ecosystem…</p>
       </div>
     );
   }
@@ -50,10 +49,9 @@ function Register() {
 
       <nav className="navbar">
         <div className="logo">
-          <span className="logo-icon">⬡</span>
-          <h2>Tech Stack Recommender</h2>
+          <span className="logo-icon">🎓</span>
+          <h2>STUDYVERSE AI Ecosystem</h2>
         </div>
-       
       </nav>
 
       <div className="register-main">
@@ -61,8 +59,10 @@ function Register() {
         <div className="form-card">
           <div className="form-header">
             <div className="form-badge">Join free</div>
-            <h1 className="form-title">TIESVERSE<br /><span>Foundation</span></h1>
-            <p className="form-subtitle">Get AI-powered stack recommendations for your startup.</p>
+            <h1 className="form-title">STUDYVERSE<br /><span>Foundation</span></h1>
+            <p className="form-subtitle">
+              Get AI-powered guidance for your study abroad journey — admissions, careers & funding.
+            </p>
           </div>
 
           {error && <div className="server-error">{error}</div>}
@@ -84,22 +84,22 @@ function Register() {
             </div>
 
             <div className="form-group">
-  <label htmlFor="EmailId">Email</label>
-  <div className="input-wrap">
-    <span className="input-icon">✉️</span>
-    <input
-      id="EmailId"
-      {...register('EmailId')}     
-      placeholder="jane@startup.com"
-      type="email"
-      className={errors.EmailId ? 'has-error' : ''}
-    />
-  </div>
-  {errors.EmailId && <span className="error">{errors.EmailId.message}</span>}
-</div>
+              <label htmlFor="EmailId">Email</label>
+              <div className="input-wrap">
+                <span className="input-icon">✉️</span>
+                <input
+                  id="EmailId"
+                  {...register('EmailId')}
+                  placeholder="jane@student.com"
+                  type="email"
+                  className={errors.EmailId ? 'has-error' : ''}
+                />
+              </div>
+              {errors.EmailId && <span className="error">{errors.EmailId.message}</span>}
+            </div>
 
             <div className="form-group">
-              <label htmlFor="Password">Password</label>
+              <label htmlFor="password">Password</label>
               <div className="input-wrap">
                 <span className="input-icon">🔒</span>
                 <input
@@ -130,18 +130,17 @@ function Register() {
         {/* Sidebar */}
         <div className="sidebar-info">
           <div className="sidebar-tag">What you get</div>
-          <h3 className="sidebar-title">Stack intelligence<br />for builders.</h3>
+          <h3 className="sidebar-title">Your AI study abroad<br />copilot.</h3>
           <p className="sidebar-desc">
-            Answer four questions about your startup and receive a curated,
-            reasoned tech stack — no guesswork, no bloat.
+            One intelligent system for university discovery, admission chances, SOPs, visas, and education loans.
           </p>
 
           <ul className="feature-list">
             {[
-              ['🚀', 'Startup stage', 'Idea → MVP → Growth → Scaling'],
-              ['👥', 'Team & budget', 'Right-sized for your resources'],
-              ['🏦', 'Sector fit', 'FinTech, EdTech, HealthTech & more'],
-              ['🧠', 'AI reasoning', 'Every choice explained clearly'],
+              ['🎯', 'Career & Course Match', 'AI suggests best-fit countries & programs'],
+              ['📊', 'Admission Predictor', 'Chance scoring for universities'],
+              ['💰', 'Loan & ROI Engine', 'Finance planning + EMI simulation'],
+              ['🤖', 'AI Copilot', '24/7 guidance for your journey'],
             ].map(([icon, title, desc]) => (
               <li key={title} className="feature-item">
                 <span className="feature-icon">{icon}</span>
@@ -154,7 +153,7 @@ function Register() {
           </ul>
 
           <div className="sidebar-footer">
-            Trusted by 2,400+ founders · Free forever
+            Trusted by 10,000+ students · AI-first platform
           </div>
         </div>
       </div>

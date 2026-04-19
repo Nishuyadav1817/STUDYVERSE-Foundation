@@ -1,53 +1,50 @@
+/* ==========================
+   BACKEND (Node.js) - AI STUDENT ECOSYSTEM
+   ========================== */
+
+
+/* ==========================
+   FRONTEND (React) - SAME UI STYLE CLASSES KEPT
+   ========================== */
+
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecommendation } from "./authSlice";
 
-
-const stats = [
-  { value: "2,400+", label: "Founders Onboarded" },
-  { value: "98%", label: "Accuracy Rate" },
-  { value: "4", label: "Questions. That's It." },
-  { value: "Free", label: "Forever. No Catch." },
-];
-
 const features = [
   {
-    icon: "🚀",
-    tag: "STAGE AWARE",
-    title: "Startup Stage",
-    desc: "Idea → MVP → Growth → Scaling. Every stage demands a different stack. We know the difference and tailor every recommendation precisely.",
+    icon: "🎯",
+    tag: "PERSONALIZED",
+    title: "AI Career Navigator",
+    desc: "Recommends best-fit countries, courses, and universities using AI reasoning.",
     color: "feat-purple",
   },
   {
-    icon: "👥",
-    tag: "RESOURCE SMART",
-    title: "Team & Budget",
-    desc: "A solo founder bootstrapping and a 50-person team with runway need completely different tools. We right-size every recommendation.",
+    icon: "📊",
+    tag: "PREDICTIVE",
+    title: "Admission & ROI Engine",
+    desc: "Predicts admission chances and future salary vs education cost.",
     color: "feat-blue",
   },
   {
-    icon: "🏦",
-    tag: "SECTOR SPECIFIC",
-    title: "Sector Fit",
-    desc: "FinTech compliance, EdTech scalability, HealthTech security — your industry shapes your stack. We factor in every nuance.",
+    icon: "💰",
+    tag: "FINANCE READY",
+    title: "Loan & Scholarship System",
+    desc: "Finds eligibility, loans, scholarships, and repayment planning.",
     color: "feat-teal",
   },
   {
-    icon: "🧠",
-    tag: "AI POWERED",
-    title: "AI Reasoning",
-    desc: "Not just a list. Every tool choice comes with a clear, jargon-free explanation of why it fits your specific situation.",
+    icon: "🤖",
+    tag: "AI COPILOT",
+    title: "Guided Application Flow",
+    desc: "Chat-based assistant for SOPs, visas, timelines, and documents.",
     color: "feat-amber",
   },
 ];
 
 export default function DashboardPage() {
-
   const dispatch = useDispatch();
-  const { loading, error, data } = useSelector(
-    (state) => state.recommendation
-  );
-
+  const { loading, error, data } = useSelector((state) => state.recommendation);
   const { register, handleSubmit } = useForm();
 
   const submit = (formData) => {
@@ -57,43 +54,54 @@ export default function DashboardPage() {
   return (
     <div className="tv-page">
 
-      {/* ── NAV ── */}
       <nav className="tv-nav">
         <div className="tv-nav-inner">
           <a href="/" className="tv-logo">
-            <span className="tv-logo-main">TIESVERSE</span>
-            <span className="tv-logo-sub">Foundation</span>
+            <span className="tv-logo-main">STUDYVERSE</span>
+            <span className="tv-logo-sub">AI Ecosystem</span>
           </a>
         </div>
       </nav>
 
-      {/* ── DASHBOARD FORM ── */}
       <section className="tv-hero">
         <div className="tv-hero-content">
+
           <div className="tv-hero-left">
             <div className="tv-form-card">
-              <h1 className="tv-form-title">Startup Details 🚀</h1>
+
+              <h1 className="tv-form-title">Your Study Abroad Journey 🎓</h1>
 
               {error && <div className="tv-server-error">{error}</div>}
 
               <form onSubmit={handleSubmit(submit)}>
+
                 <div className="tv-form-group">
-                  <label>Startup Stage</label>
+                  <label>Journey Stage</label>
                   <select {...register("stage")}>
-                    <option value="idea">Idea</option>
-                    <option value="mvp">MVP</option>
-                    <option value="growth">Growth</option>
-                    <option value="scaling">Scaling</option>
+                    <option value="exploration">Exploration</option>
+                    <option value="shortlisting">Shortlisting</option>
+                    <option value="application">Application</option>
+                    <option value="finalization">Finalization</option>
                   </select>
                 </div>
 
                 <div className="tv-form-group">
-                  <label>Team Size</label>
-                  <select {...register("teamSize")}>
-                    <option value="1-5">1-5</option>
-                    <option value="5-10">5-10</option>
-                    <option value="10-50">10-50</option>
-                    <option value="50+">50+</option>
+                  <label>Field of Study</label>
+                  <select {...register("fieldOfStudy")}>
+                    <option value="cs">Computer Science</option>
+                    <option value="mba">MBA</option>
+                    <option value="healthcare">Healthcare</option>
+                  </select>
+                </div>
+
+                <div className="tv-form-group">
+                  <label>Target Country</label>
+                  <select {...register("goalCountry")}>
+                    <option value="usa">USA</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">UK</option>
+                    <option value="europe">Europe</option>
+                    <option value="india">India</option>
                   </select>
                 </div>
 
@@ -106,34 +114,24 @@ export default function DashboardPage() {
                   </select>
                 </div>
 
-                <div className="tv-form-group">
-                  <label>Sector</label>
-                  <select {...register("sector")}>
-                    <option value="fintech">FinTech</option>
-                    <option value="edtech">EdTech</option>
-                    <option value="healthtech">HealthTech</option>
-                    <option value="ecommerce">E-commerce</option>
-                    <option value="saas">SaaS</option>
-                  </select>
-                </div>
-
                 <button className="tv-btn-hero" type="submit">
-                  Get Recommendation →
+                  Generate AI Guidance →
                 </button>
               </form>
 
               {loading && (
                 <div className="tv-spinner-container">
                   <div className="tv-spinner"></div>
-                  <p className="tv-spinner-text">Analyzing your startup...</p>
+                  <p className="tv-spinner-text">Building your ecosystem...</p>
                 </div>
               )}
 
               {data && (
                 <div className="tv-preview-card">
                   <div className="tv-preview-header">
-                    <span className="tv-preview-label">Your Recommended Stack</span>
+                    <span className="tv-preview-label">Your AI Study Ecosystem</span>
                   </div>
+
                   <div className="tv-stack-list">
                     {data.stack?.map((s, idx) => (
                       <div key={idx} className="tv-stack-row">
@@ -143,6 +141,7 @@ export default function DashboardPage() {
                       </div>
                     ))}
                   </div>
+
                   <div className="tv-preview-reason">
                     <span className="tv-reason-icon">🧠</span>
                     <p>{data.reason}</p>
@@ -152,10 +151,10 @@ export default function DashboardPage() {
 
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* ── FEATURES GRID ── */}
       <section className="tv-features">
         <div className="tv-section-inner">
           <div className="tv-feat-grid">
