@@ -57673,7 +57673,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const axiosClient = (0, _axiosDefault.default).create({
-    baseURL: 'https://tiesverse-foundation-phi.vercel.app',
+    baseURL: 'https://studyverse-foundation-8cdb.vercel.app',
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json'
