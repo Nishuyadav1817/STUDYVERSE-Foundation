@@ -13,7 +13,7 @@ const Redis=require("./redis");
 const cors = require('cors'); 
 
 const allowedOrigins = [
-  "https://studyverse-foundation.vercel.app/"
+  "https://studyverse-foundation.vercel.app"
 
  
 ];
